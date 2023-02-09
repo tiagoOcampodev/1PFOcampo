@@ -1,0 +1,26 @@
+*{
+    list-style: none;
+    color: white;
+    text-decoration: none;
+}
+.sidebar{
+    background-color: #1f1f1f;
+    margin: -20px;
+    height: 240%;
+    width: 10%;
+    display: flex;
+}
+.sidebar ul li a {
+    display: block;
+    margin: 30px 6px;
+}
+.sidebar ul {
+    position: fixed;
+    top: 50px;
+}
+.sidebar ul li{
+    display: block;
+}
+
+
+

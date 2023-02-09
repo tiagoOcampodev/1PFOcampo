@@ -1,7 +1,6 @@
 mat-toolbar{
     background-color: #1f1f1f;
     color: white;
+    position: fixed;
+    z-index: 3;
 }
-
-
-

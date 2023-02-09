@@ -1,0 +1,48 @@
+<h1>Login</h1>
+<form [formGroup]="formularioLogin" (ngSubmit)="login()" class="container was-validated">
+    <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">Nombre</label>
+      <input formControlName="nombre" type="text" class="form-control" id="validationCustom01" required>
+      <div class="valido" *ngIf="formularioLogin.controls['nombre'].dirty && formularioLogin.controls['nombre'].valid">
+        ¡Se ve bien!
+      </div>
+      <div class="valido" *ngIf="formularioLogin.controls['nombre'].dirty && formularioLogin.controls['nombre'].errors?.['required']">
+        Es necesario completar este campo.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+      <input formControlName="correo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div class="valido" *ngIf="formularioLogin.controls['correo'].dirty && formularioLogin.controls['correo'].valid">
+        Campo correcto!
+      </div>
+      <div class="invalido" *ngIf="formularioLogin.controls['correo'].dirty && formularioLogin.controls['correo'].errors?.['required']">
+        El campo no puede quedar vacio.
+      </div>
+      <div class="invalido" *ngIf="formularioLogin.controls['correo'].dirty && formularioLogin.controls['correo'].errors?.['pattern']">
+        El campo tiene un formato incorrecto.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+      <input formControlName="contraseña" type="password" class="form-control" id="exampleInputPassword1">
+      <div class="valido" *ngIf="formularioLogin.controls['contraseña'].dirty && formularioLogin.controls['contraseña'].valid">
+        Campo correcto!
+      </div>
+      <div class="invalido" *ngIf="formularioLogin.controls['contraseña'].dirty && formularioLogin.controls['contraseña'].errors?.['required']">
+        El campo no puede quedar vacio.
+      </div>
+      <div class="invalido" *ngIf="formularioLogin.controls['contraseña'].dirty && formularioLogin.controls['contraseña'].errors?.['minlength']">
+        El campo contraseña debe tener minimo 6 caracteres.
+      </div>
+    </div>
+    <div class="mb-3 form-check">
+      <input formControlName="recordarCredenciales" type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Recordar credenciales</label>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary" [disabled]="formularioLogin.invalid" (click)="login()">Login</button>
+      <button type="button" class="btn btn-secondary" [disabled]="formularioLogin.invalid">Registro</button>
+      <button type="reset" class="btn btn-danger">Reset</button>
+    </div>
+</form>
